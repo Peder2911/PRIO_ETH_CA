@@ -1,0 +1,91 @@
+
+# Sentences codebook
+
+This document describes coding criteria for coding sentences describing
+ceasefires.  The purpose of this coding effort is to create training data for a
+machine-learning system that will assist coders in the task of coding
+ceasefires. This sentence coding is thus meant to facilitate the coding effort
+itself, making it more effective over time.
+
+It is important to formalize the coding criteria to ensure reliability. These
+criteria are given in this document, and should be followed closely in order to
+produce high-quality training data, and thus better predictions from the model.
+
+## Instructions
+
+When you recieve a sheet containing sentences with a column for predictions,
+start going through them.
+
+The column "prediction" contains a 1 if a sentence was predicted to be
+indicating the start of a ceasefire, and 0 if a sentence was not predicted to
+be indicating the start of a ceasefire (see definitions below).
+
+If the prediction made by the model is correct, for example if a sentence
+predicted as 1 actually indicates the start of a ceasefire, the row-value in
+the column "valid" should be 1.  If the prediction is wrong, for example if a
+sentence predicted as 0 actually indicates the start of a ceasefire, the
+row-value for the column "valid" should be 0. 
+
+## Coding rules:
+
+These are the rules that were followed when coding the data that was used to
+produce predictions currently given by the model:
+
+### Positive definition:
+
+The prototypical sentence we are looking for is:
+
+- $x$ and $y$ have signed a ceasefire.  
+  
+Where $x$ and $y$ refer to parties in a ceasefire. 
+
+Sentences with one, or zero parties might also be interesting, such as:
+
+- $x$ declared a ceasefire
+- $x$ is now observing a ceasefire
+- A ceasefire was declared
+- A ceasefire went into effect 
+- A ceasefire started at $z$ 
+
+Where $z$ refers to a point in time, such as a date.
+
+These sentences share the following characteristics:
+- The sentences refer to a past event (the start of a ceasefire)
+- The sentences are unambiguous (no maybe / might have / should have)
+
+The sentences could also include the precise time of the event, or this could
+be inferred from the publication date of the article at the time of coding.
+
+### Negative definition:
+
+The following sentences should be coded as negative:
+
+- $x$ and $y$ will sign a ceasefire at $z$
+- The parties are urged to sign a ceasefire 
+- $x$ would / wants to sign a ceasefire 
+- $x$ proposes a ceasefire 
+- $x$ offers a ceasefire to $y$ 
+- $x$ will enforce a ceasefire
+
+These sentences do not refer to an event, but the intentions of actors. While
+these sentences might be useful indications of the probability of a ceasefire
+occuring, they are not actual indications of the phenomenon to be coded.
+
+These sentences should also be coded as negative:
+
+- During the ceasefire...something occurred
+- $x$ and $y$ are respecting the ceasefire
+- After the ceasefire, the situation has improved 
+- Despite the ceasefire, violence is frequent
+
+These sentences refer to ceasefires in progress, and might not be useful for
+coding the start of ceasefires.
+
+## Developing the criteria
+
+These criteria are not final, and should be developed as we move forward.
+However, extensive changes would require extensive re-coding, as 3000 sentences
+have been coded using these criteria already.
+
+Please e-mail any questions, and suggestions to [me] (pglandsverk@gmail.com).
+
