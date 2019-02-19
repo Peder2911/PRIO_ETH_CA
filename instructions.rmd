@@ -87,5 +87,5 @@ These criteria are not final, and should be developed as we move forward.
 However, extensive changes would require extensive re-coding, as 3000 sentences
 have been coded using these criteria already.
 
-Please e-mail any questions, and suggestions to [me] (pglandsverk@gmail.com).
+Please e-mail any questions, and suggestions to pglandsverk@gmail.com.
 
